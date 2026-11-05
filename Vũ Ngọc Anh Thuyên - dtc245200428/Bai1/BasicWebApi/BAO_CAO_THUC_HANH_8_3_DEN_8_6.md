@@ -82,6 +82,7 @@ Kiểm tra extension REST Client đã cài và bật, file có đuôi `.http` ho
 
 ## 7. Kết luận
 
-Đã kiểm thử các endpoint chính, bổ sung và xác nhận lời chào tiếng Nhật, đọc/giải thích được các phần quan trọng trong `Program.cs`, và debug thành công endpoint POST với breakpoint, Variables và bước F10/F5. Các vị trí ảnh minh chứng phía trên được để trống để sinh viên tự chụp ảnh thực tế và bổ sung.
+Đã kiểm thử các endpoint chính, bổ sung và xác nhận lời chào tiếng Nhật, đọc/giải thích được các phần quan trọng trong `Program.cs`, và debug thành công endpoint POST với breakpoint, Variables và bước F10/F5. Ảnh minh chứng thực tế đã được chụp từ Antigravity IDE và VS Code, lưu trong `docs/anh-minh-chung/` và nhúng trực tiếp ở các mục liên quan.
+
 
 

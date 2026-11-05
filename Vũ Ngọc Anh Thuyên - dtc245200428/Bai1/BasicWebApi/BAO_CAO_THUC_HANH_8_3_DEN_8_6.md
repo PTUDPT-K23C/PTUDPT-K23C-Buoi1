@@ -8,7 +8,7 @@
 - File chính: `src/BasicWebApi/Program.cs`; request kiểm thử: `requests.http`.
 - Đã bổ sung `src/BasicWebApi/Properties/launchSettings.json` để profile debug `BasicWebApi` dùng cổng 5081 và môi trường Development.
 
-[CHÈN ẢNH MINH CHỨNG 1 – Cấu trúc dự án và Program.cs]
+![Program.cs: builder, đăng ký Singleton và các endpoint](docs/anh-minh-chung/01-program-setup.jpg)
 
 ## 2. Mục 8.3 – Kiểm thử bằng REST Client
 
@@ -25,11 +25,11 @@
 
 ID lời chào tăng theo số lần POST trong từng tiến trình API; vì vậy ID có thể khác ví dụ trong tài liệu.
 
-[CHÈN ẢNH MINH CHỨNG 2 – GET / và phản hồi JSON]
+![REST Client: GET trang chủ trả về BasicWebApi](docs/anh-minh-chung/02-get-root.jpg)
 
-[CHÈN ẢNH MINH CHỨNG 3 – POST hợp lệ: 201 Created và Location]
+![REST Client: POST hợp lệ trả 201 Created và Location](docs/anh-minh-chung/03-post-201.jpg)
 
-[CHÈN ẢNH MINH CHỨNG 4 – POST tên rỗng: 400 Bad Request]
+![REST Client: POST tên rỗng trả 400 Bad Request](docs/anh-minh-chung/04-post-400.jpg)
 
 ## 3. Mục 8.4 – Đọc code trong Program.cs
 
@@ -41,13 +41,13 @@ ID lời chào tăng theo số lần POST trong từng tiến trình API; vì v�
 
 **Đoạn ghi nhật ký:** Trong chương trình, tôi đăng ký `GreetingService` bằng Singleton trước khi gọi `builder.Build()` để ứng dụng tạo được đầy đủ dịch vụ. Ở endpoint `/hello/{name}`, `name` lấy từ đường dẫn còn `language` lấy từ query string. Khi POST tạo lời chào thành công, API trả `201 Created` và header `Location` cho biết URI của lời chào mới. `200 OK` dùng cho xử lý thành công thông thường, còn `400 Bad Request` dùng khi dữ liệu gửi lên không hợp lệ.
 
-[CHÈN ẢNH MINH CHỨNG 5 – Các endpoint và đăng ký service trong Program.cs]
+
 
 ## 4. Mục 8.5 – Bổ sung tiếng Nhật
 
 Trong xử lý ngôn ngữ của GET `/hello/{name}`, đã thêm nhánh kiểm tra `ja` không phân biệt chữ hoa/chữ thường và trả `Konnichiwa, {name}!`. Nhánh tiếng Anh và cách mặc định tiếng Việt được giữ nguyên. Request `GET /hello/An?language=ja` đã trả 200 OK với `{"message":"Konnichiwa, An!"}`.
 
-[CHÈN ẢNH MINH CHỨNG 6 – Request tiếng Nhật và phản hồi 200]
+![REST Client: lời chào tiếng Nhật trả 200 OK](docs/anh-minh-chung/05-japanese-ja.jpg)
 
 ## 5. Mục 8.6 – Debug API
 
@@ -62,9 +62,9 @@ Breakpoint đã dừng tại dòng 34. Trong Variables, `request` có `Name = Bi
 
 Luồng xử lý: HTTP POST → endpoint `/greetings` → kiểm tra `request.Name` → gọi `GreetingService.Create(...)` → trả `201 Created` và `Location`.
 
-[CHÈN ẢNH MINH CHỨNG 7 – Breakpoint dừng tại dòng 34 và Variables]
+![VS Code: breakpoint tại dòng 34, request Binh và service trong Variables](docs/anh-minh-chung/06-debug-breakpoint.jpg)
 
-[CHÈN ẢNH MINH CHỨNG 8 – greeting sau F10 hoặc phản hồi 201 sau F5]
+![VS Code: greeting sau khi thực thi dòng tạo bằng F10](docs/anh-minh-chung/07-debug-step-over.jpg)
 
 ## 6. Các lỗi thường gặp và cách xử lý
 
@@ -83,3 +83,5 @@ Kiểm tra extension REST Client đã cài và bật, file có đuôi `.http` ho
 ## 7. Kết luận
 
 Đã kiểm thử các endpoint chính, bổ sung và xác nhận lời chào tiếng Nhật, đọc/giải thích được các phần quan trọng trong `Program.cs`, và debug thành công endpoint POST với breakpoint, Variables và bước F10/F5. Các vị trí ảnh minh chứng phía trên được để trống để sinh viên tự chụp ảnh thực tế và bổ sung.
+
+
